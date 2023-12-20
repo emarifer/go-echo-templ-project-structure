@@ -1,0 +1,52 @@
+package user
+
+import (
+	"github.com/emarifer/go-templ-project-structure/services"
+	"github.com/emarifer/go-templ-project-structure/views/layout"
+	"fmt"
+)
+
+templ Details(tz string, user services.User) {
+	<h1 class="text-3xl text-center font-bold capitalize">
+		{ fmt.Sprintf("User details %s", user.Username) }
+	</h1>
+	<section class="card w-96 bg-base-300 shadow-xl mx-auto mt-12">
+		<div class="card-body flex flex-col gap-6">
+			<h1 class="card-title capitalize text-secondary text-2xl italic">
+				{ user.Username }
+			</h1>
+			<ul class="flex flex-col gap-2 list-disc marker:text-secondary text-sm text-secondary font-semibold">
+				<li>
+					Email:&nbsp;&nbsp;
+					<span class="text-neutral-content font-light">
+						{ user.Email }
+					</span>
+				</li>
+				<li>
+					Created At:&nbsp;&nbsp;
+					<span class="text-neutral-content font-light">
+						{ services.ConverDateTime(tz, user.CreatedAt) }
+					</span>
+				</li>
+			</ul>
+			<div class="divider divider-secondary -m-4"></div>
+			<div class="card-actions justify-end">
+				<a
+ 					hx-swap="transition:true"
+ 					class="block w-fit h-fit badge badge-outline hover:scale-[1.03] ease-in duration-300"
+ 					href="/user"
+				>
+					<p class="m-1">
+						&larr; Back to User List
+					</p>
+				</a>
+			</div>
+		</div>
+	</section>
+}
+
+templ DetailsIndex(title string, cmp templ.Component) {
+	@layout.Base(title) {
+		@cmp
+	}
+}

@@ -1,0 +1,27 @@
+package layout
+
+templ Base(title string) {
+	<!DOCTYPE html>
+	<html lang="en" data-theme="dark">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<meta
+ 				name="description"
+ 				content="Go/Echo+Templ: User List App as an example of a project structured in layers, use of 'Templ' Template language and frontend with HTMx technology"
+			/>
+			<meta name="google" content="notranslate"/>
+			<link rel="shortcut icon" href="/img/templ.png" type="image/png"/>
+			<script src="https://cdn.tailwindcss.com"></script>
+			<link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.10/dist/full.min.css" rel="stylesheet" type="text/css"/>
+			<link rel="stylesheet" href="/css/styles.css"/>
+			<title>Project Structure Demo { title }</title>
+			<script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
+		</head>
+		<body class="sample-transition" hx-boost="true">
+			<main class="pt-40">
+				{ children... }
+			</main>
+		</body>
+	</html>
+}
